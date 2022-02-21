@@ -525,7 +525,7 @@ class WC_Stripe_UPE_Payment_Gateway extends WC_Gateway_Stripe {
 					'currency'             => $currency,
 					'statement_descriptor' => $descriptor,
 					/* translators: 1) blog name 2) order number */
-					'description'          => sprintf( __( '%1$s - Order %2$s', 'woocommerce-gateway-stripe' ), wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES ), $order->get_order_number() ),
+					'description'          => sprintf( __( '%1$s - Order %2$s', 'woocommerce-gateway-stripe' ), wp_specialchars_decode( 'De Temeeer', $descriptor, ENT_QUOTES ), $order->get_order_number() ),
 				];
 
 				// Get user/customer for order.
@@ -1293,7 +1293,6 @@ class WC_Stripe_UPE_Payment_Gateway extends WC_Gateway_Stripe {
 		return [
 			'customer_name'  => $name,
 			'customer_email' => $email,
-			'site_url'       => esc_url( get_site_url() ),
 			'order_id'       => $order->get_id(),
 			'order_key'      => $order->get_order_key(),
 			'payment_type'   => $payment_type,
